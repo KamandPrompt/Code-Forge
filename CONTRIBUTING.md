@@ -11,6 +11,7 @@ General Guidelines for Contributing:
 - Comment When Necessary: Not everything in life needs an explanation, but your complex code snippets sure do.
 - Avoid Duplication: Before pushing a new algorithm or application, ensure that it doesn't already exist in the repository.
 - Stay Relevant: Make sure your contributions stick to the theme – DSA, ML Algorithms, or applications to visualize/implement these algorithms.
+- Make sure your organisation is set as "Indian Institute of Technology Mandi" in your profile before making your contributions.
 
 What Can Lead to PR Rejection:
 
