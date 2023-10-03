@@ -9,3 +9,5 @@ Keep Solving Issues and make meaningful Pull Requests.
 
 ### *Disclaimer*
 **This repository is only open to IIT Mandi Students, starting their Open Source Journey. Please make sure that you are an IIT Mandi Student with a valid Enrollment No.**
+
+Remember to go through the contributing guide before making your PR.
