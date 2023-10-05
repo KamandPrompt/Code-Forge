@@ -65,10 +65,12 @@ bool dsu(vector<vector<int>>& edges) {
 int main(){
     vector<vector<int>>graph;
     int n;
+    cout<<"enter size of graph"<<endl;
     cin>>n;//size of the graph
     for (int i = 0; i < n; i++)
     {
         int a,b;
+        cout<<"enter connected nodes/cities i.e. a,b means a and b are connected"<<endl;
         cin>>a>>b;//connected cities
         vector<int>v={a,b};
         graph.push_back(v);
