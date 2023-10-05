@@ -24,12 +24,14 @@ void PrintStack(stack<pair<int, int>> s)
 int main()
 {
     int n;
+    cout<<"enter the number of points"<<endl;
     cin >> n;
     vector<pair<int, int>> vect;
 
     for (int i = 0; i < n; i++)
     {
         int k, l;
+        cout<<"point1"<<"point2"<<endl;
         cin >> k >> l;
         vect.push_back(make_pair(k, l));
     }
