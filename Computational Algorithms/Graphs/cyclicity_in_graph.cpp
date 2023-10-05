@@ -63,12 +63,23 @@ bool dsu(vector<vector<int>>& edges) {
 }
 
 int main(){
-    vector<vector<int>>graph={{1,2},{2,3},{3,4},{1,5},{1,4}};
+    vector<vector<int>>graph;
+    int n;
+    cin>>n;//size of the graph
+    for (int i = 0; i < n; i++)
+    {
+        int a,b;
+        cin>>a>>b;//connected cities
+        vector<int>v={a,b};
+        graph.push_back(v);
+    }
+    
     /*
-        graph is:
+        let's say the graph is like:
         2--1--5
         |  |
         3--4
+        input would be {1,2},{2,3},{1,4},{1,5},{3,4}
     */
     bool ans= dsu(graph);
 
