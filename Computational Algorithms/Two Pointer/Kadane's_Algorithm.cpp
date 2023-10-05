@@ -38,7 +38,9 @@ int maxSubArray(vector<int> nums) {
 int main(){
     vector<int>a;
     int n;
+    cout<<"enter size of array"<<endl;
     cin>>n;//size of array
+    cout<<"enter value of element of array"<<endl;
     for (int i = 0; i < n; i++)
     {
         int k;
