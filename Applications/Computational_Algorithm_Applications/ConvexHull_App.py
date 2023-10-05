@@ -3,14 +3,21 @@ import matplotlib.pyplot as plt
 import time
 
 n = int(input("Enter n: "))
-store = []
+store1 = []
 
 for i in range(n):
-    l = int(input())
-    k = int(input())
-    store.append([l, k])
-
+    l, k = map(int, input().split())
+    store1.append([l, k])
+cnt  = 0
+store=[]
+for i in range(len(store1)):
+    if(store1[i] in store):
+        store.pop()
+    store.append(store1[i])
+# print(store)
+store = sorted(store)
 min_ele = min(store)
+print(min_ele)
 
 angles = []
 for i in range(len(store)):
@@ -21,8 +28,10 @@ for i in range(len(store)):
         angles.append([m, i])
 
 angles.sort()
+# print(angles)
 
 sorted_list = [min_ele] + [store[angle[1]] for angle in angles]
+print(sorted_list)
 # same process as used in convex hull algo done in cpp
 plt.ion()
 fig, ax = plt.subplots()
@@ -41,10 +50,7 @@ while i < len(sorted_list):
     main.append([sorted_list[i][0], sorted_list[i][1]])
     if len(main) >= 3:
         area = (
-            (main[-2][0] - main[-3][0])
-            * (main[-1][1] - main[-3][1])
-            - (main[-2][1] - main[-3][1])
-            * (main[-1][0] - main[-3][0])
+        (sorted_list[i - 1][0] - sorted_list[i - 2][0]) * (sorted_list[i][1] - sorted_list[i - 2][1]) - (sorted_list[i - 1][1] - sorted_list[i - 2][1]) * (sorted_list[i][0] - sorted_list[i - 2][0])
         )
         if area > 0:
             color1 = 'green'
@@ -53,10 +59,12 @@ while i < len(sorted_list):
             color1 = 'red'
             color2 = 'green'
             main.pop(-2)
+            sorted_list.remove(sorted_list[i-1])
+            i=i-2
+
         else:
             temp.append(main[i])
-            main.pop()
-            main.pop()
+            main.pop(-2)
             main.append(temp[0])
             temp.pop()
 
@@ -85,4 +93,5 @@ plt.ioff()
 # turn off matplotlib mode to change a single graph
 plt.show()
 time.sleep(3)
-# time to show the end graph and then 3 seconds to end the program
+# time to show the end graph and then 3[1]s to end the program
+
