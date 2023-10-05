@@ -36,7 +36,15 @@ int maxSubArray(vector<int> nums) {
 }
 */
 int main(){
-    vector<int>a={1,-2,-3,4,-1,2,1,-5,4};
+    vector<int>a;
+    int n;
+    cin>>n;//size of array
+    for (int i = 0; i < n; i++)
+    {
+        int k;
+        cin>>k;//element of the array
+        a.push_back(k);
+    }
     int ans=maxSubArray(a);
     cout<<ans;
 }
