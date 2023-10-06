@@ -74,11 +74,16 @@ int main(){
         cin>>arr[i];
     }
     
-    tree(0,0,arr.size()-1);//to build the tree
-
+    tree(0,0,n-1);//to build the tree
+    cout<<"value of range minimum index and maximum index"<<endl;
     int l,r;
     cin>>l>>r;
-    int result=find(0,0,arr.size()-1,l,r);//to find the min/max value in a given range.
-    cout<<result;
+    if(l<0){
+        cout<<"out of index";
+        return 0;
+    }
+    int result=find(0,0,n-1,l,r);//to find the min/max value in a given range.
+    if(result==INT_MIN){cout<<"range out of index";}
+    else cout<<result;
     return 0;
 }
