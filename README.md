@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div style="display: flex; align-items: center; justify-content: center;">
-    <img src="https://i.imgur.com/WpF39yT.jpg" alt="Code-Forge Logo" width="100" height="50">
-    <h1 style="margin-left: 20px;">Code-Forge</h1>
+<div align= "center">
+    <img src="https://i.imgur.com/WpF39yT.jpg" alt="Code-Forge Logo" width="300" height="150">
+
 </div>
+    <h1 style="margin-left: 50px"; align = "center">Code-Forge</h1>
 
 <h5 align="center">An Interactive Repository for Immersive Algorithmic Exploration and Learning.</h5>
 
