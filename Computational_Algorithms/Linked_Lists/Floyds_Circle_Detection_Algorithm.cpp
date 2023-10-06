@@ -62,13 +62,46 @@ void print(singly_linked_node* &head){
     cout<<endl;
 }
 
-int main(){
-    singly_linked_node* list1=new singly_linked_node(1);
-    for(int i=0;i<10;i++){
-        tail_push_back(list1,rand());
+void createLoop(singly_linked_node* &head, int k){
+    if(k==-1){
+        return;
     }
 
-    // list1->next->next->next=list1->next; Uncomment to test with circular loop in the LL
+    // temp will point to kth node
+    singly_linked_node* temp=head;
+    for(int i=1;i<=k-1;i++){
+        temp=temp->next;
+    }
+
+    // temp2 points to last node
+    singly_linked_node* temp2=head;
+    while(temp2->next!=NULL){
+        temp2=temp2->next;
+    }
+
+    // Create Loop
+    temp2->next=temp;
+    return;
+}
+
+int main(){
+
+    int n;
+    cout<<"Enter the number of elements in the Linked List: ";
+    cin>>n;
+    singly_linked_node* list1=new singly_linked_node(1);
+    
+    for(int i=1;i<=n;i++){
+        tail_push_back(list1, i);
+    }
+
+    cout<<"\nAdded numbers from 1 to "<<n<<" in the linked list.\n";
+
+    int nodeValue;
+    cout<<"\nEnter node to loop back last node to(Input -1 for no loop): ";
+    cin>>nodeValue;
+
+    createLoop(list1, nodeValue);
 
     cout<<"\nCircular Check: "<<iscircular(list1);
 
