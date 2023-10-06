@@ -17,7 +17,6 @@ for i in range(len(store1)):
 # print(store)
 store = sorted(store)
 min_ele = min(store)
-print(min_ele)
 
 angles = []
 for i in range(len(store)):
