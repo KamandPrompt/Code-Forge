@@ -9,6 +9,7 @@ class Node{
 
     Node(int data,int level){
         this->data=data;
+        this->level = level;
         forward=new Node*[level+1];
         for(int i=0;i<level+1;i++){
             forward[i]=NULL;
@@ -28,15 +29,14 @@ class Skiplist{
     }
     
     int randomlvl(){
-        int val=rand()%10;
-        int val1=rand()%10;
-        if ((val1-val>maxlvl)){
-            return maxlvl;
-        }
-        else if(val1-val<=0){
-            return 1;
-        }    
-        return val;
+    float r = (float)rand()/RAND_MAX;
+    int lvl = 0;
+    while (r < 0.75 && lvl <= maxlvl)
+    {
+        lvl++;
+        r = (float)rand()/RAND_MAX;
+    }
+    return lvl;
     }
     void insert(int x){
         Node* curr = header;
@@ -91,11 +91,18 @@ class Skiplist{
 
 int main(){
     Skiplist l(3);
-    l.insert(10);
-    l.insert(20);
-    l.insert(30);
+    l.insert(3);
     l.insert(6);
+    l.insert(7);
+    l.insert(9);
+    l.insert(12);
+    l.insert(19);
+    l.insert(17);
+    l.insert(26);
+    l.insert(21);
+    l.insert(25);
 
     l.display();
-    cout<<l.search(20);
+    if (l.search(25)) cout<<"Found Element";
+    else cout<<"Not Found Element";
 }
