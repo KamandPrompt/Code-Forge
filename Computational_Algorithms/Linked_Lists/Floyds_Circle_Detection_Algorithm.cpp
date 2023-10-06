@@ -91,11 +91,13 @@ int main(){
     cin>>n;
     singly_linked_node* list1=new singly_linked_node(1);
     
-    for(int i=1;i<=n;i++){
+    for(int i=2;i<=n;i++){
         tail_push_back(list1, i);
     }
 
     cout<<"\nAdded numbers from 1 to "<<n<<" in the linked list.\n";
+
+    print(list1);
 
     int nodeValue;
     cout<<"\nEnter node to loop back last node to(Input -1 for no loop): ";
