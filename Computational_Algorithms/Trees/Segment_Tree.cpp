@@ -78,8 +78,8 @@ int main(){
     cout<<"value of range minimum index and maximum index"<<endl;
     int l,r;
     cin>>l>>r;
-    if(l<0){
-        cout<<"out of index";
+    if(l<0||r>n-1){
+        cout<<"out of index please keep input in array range";
         return 0;
     }
     int result=find(0,0,n-1,l,r);//to find the min/max value in a given range.
