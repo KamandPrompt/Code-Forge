@@ -15,12 +15,12 @@ using namespace std;
 
 int maxSubArray(vector<int> nums) {
 
-    int ans=INT_MIN;
-    int cur=0;
+    int ans=INT_MIN;//global max sum of subarray
+    int cur=0;//current sum of subarray
     for(int num:nums){
         cur=max(num,cur+num);
         if(cur>=ans){
-            ans=cur;
+            ans=cur;//if current max is greater than global max... then updating it.
         }
         else{
             continue;
@@ -38,10 +38,12 @@ int maxSubArray(vector<int> nums) {
 int main(){
     vector<int>a;
     int n;
+    cout<<"enter no. of element in array"<<endl;
     cin>>n;//size of array
     for (int i = 0; i < n; i++)
     {
         int k;
+        cout<<"enter element in array"<<endl;
         cin>>k;
         a.push_back(k);
     }
