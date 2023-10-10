@@ -2,7 +2,7 @@ import sys
 
 sys.path.append('/Users/vayungoel/Desktop/Code-Forge/ML_Algorithms')
 
-from Linear_Regression.linear_regression import LinearRegression2D
+from Linear_Regression.linear_regression_2d import LinearRegression2D
 
 import numpy as np
 import matplotlib.pyplot as plt
