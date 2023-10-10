@@ -22,4 +22,4 @@ General ***Guidelines*** for Contributing:
 - ❌Incomplete or *broken `code`*.
 - ❌**Ignoring** the general **guidelines** mentioned above.
 
-### Happy Hactoberfest to all Contributers of IIT Mandi 😀
+### Happy Hacktoberfest to all Contributers of IIT Mandi 😀
