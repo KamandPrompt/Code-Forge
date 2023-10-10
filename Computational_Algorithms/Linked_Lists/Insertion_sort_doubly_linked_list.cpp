@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Defining node for the program
 class Node{
     public:
     int data;
@@ -12,6 +13,7 @@ class Node{
         next=NULL;
     }
 };
+//Defining function for inserting a node
 void Insert_sort(Node* &head,int val){
     Node* n=new Node(val);
     // cout<<(head==NULL)<<endl;
@@ -63,6 +65,7 @@ void Insert_sort(Node* &head,int val){
     return;
 } 
 
+//Defining function for display doubly linked list
 void display(Node* head){
     Node* temp=head;
     while(temp->next!=NULL){
@@ -73,6 +76,7 @@ void display(Node* head){
     return;
 }
 
+//Main driver code
 int main(){
     Node* head=NULL;
     Node* tail=NULL;
