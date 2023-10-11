@@ -1,6 +1,14 @@
-/*This code is of insertion sort using doubly linked list which stores address of both 
-next and previous node which helps in forward and reeverse traversa. This includes defining class Node and function for 
-insert operation and printing the doubly linked list*/ 
+/*This code is of insertion sort using doubly linked list.
+Algorithm:
+-->Create a class node containing data, address of previous node and address of next node.
+-->In case of insertion to the list, start traversing from the provided head and find its correct position in the list.
+-->We will then update the next node addresss and previous node address for the nodes between which new node is being inserted.
+-->For printing the sorted list, start from head and traverse through the list.
+Time complexity:O(n*n) 
+As we run a for loop for n elements and for each element we traverse through the list using  another loop.
+Space Complexity: O(1)
+As we are not using any extra space.
+*/
 
 #include<bits/stdc++.h>
 using namespace std;
