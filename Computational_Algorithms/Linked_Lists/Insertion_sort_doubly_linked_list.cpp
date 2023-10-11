@@ -74,7 +74,13 @@ void Insert_sort(Node* &head,int val){
 
 //Defining function for display doubly linked list
 void display(Node* head){
+    // //check for empty list
+    if(head==NULL){
+        cout<<"List is empty."<<endl;
+        return;
+    }
     Node* temp=head;
+    cout<<"Sorted list: ";
     //Traversing through nodes
     while(temp->next!=NULL){
         cout<<temp->data<<" ";
@@ -96,7 +102,6 @@ int main(){
         int x;cin>>x;
         Insert_sort(head,x);
     }
-    cout<<"Sorted list: ";
     display(head);
     return 0;  
 }
