@@ -13,7 +13,7 @@
 
 <h5 align="center">An Interactive Repository for Immersive Algorithmic Exploration and Learning.</h5>
 
-<h6 align="center">The Ultimate Code-Base By and For IIT Mandi Students</h6>
+<h6 align="center">The Ultimate Code-Base By IIT Mandi Students, For IIT Mandi Students</h6>
 
 <h1 align="center">Yayy! It's Our First Time in Hacktoberfest 🎉</h1>
 
@@ -23,14 +23,14 @@
     <img src="https://i.imgur.com/6ZLO0iZ.png" alt="Hacktoberfest 2023" width="700">
 </div>
 
-<h2 align="center">Getting Started 🚀</h2>
+<h2>Getting Started 🚀</h2>
 
-<p align="center">Have no idea about Hacktoberfest? Don't know about Git/Github? Want to know more about the Code-Forge Repository and Hacktoberfest?</p>
+<p>Have no idea about Hacktoberfest? Don't know about Git/Github? Want to know more about the Code-Forge Repository and Hacktoberfest?</p>
 
-<p align="center">Check out our <a href="https://dev.to/kappuccino111/iit-mandi-students-lets-fortify-our-opensource-armour-together-opd">Getting Started Guide</a>. Here you will get everything you need for getting started in your open source journey.
+<p>Check out our <a href="https://dev.to/kappuccino111/iit-mandi-students-lets-fortify-our-opensource-armour-together-opd">Getting Started Guide</a>. Here you will get everything you need for getting started in your open source journey.
 We have things specially curated for you 😀</p>
 
-<h2 align="center">Description 📚</h2>
+<h2>Description 📚</h2>
 
 <p style="font-size: 14px;">
     <ul>
@@ -59,19 +59,19 @@ We have things specially curated for you 😀</p>
     </ul>
 </p>
 
-<h2 align="center">Tasks ✅</h2>
+<h2>Tasks ✅</h2>
 
-<p align="center">You have to make PR's for the basic codes of Computational/ML Algorithms (in Folder 1/ Folder 2) and the Application based on the algorithm that you have provided (in Folder 1/Folder 2) in subfolders (Folder 3A/Folder 3B) in Folder 3. Only 2 PRs for Computational/ML Algorithmic contributions will be accepted, and the rest 2 should be for applications based on the algorithms.</p>
+<p>You have to make PR's for the basic codes of Computational/ML Algorithms (in Folder 1/ Folder 2) and the Application based on the algorithm that you have provided (in Folder 1/Folder 2) in subfolders (Folder 3A/Folder 3B) in Folder 3. Only 2 PRs for Computational/ML Algorithmic contributions will be accepted, and the rest 2 should be for applications based on the algorithms.</p>
 
-<h2 align="center">Disclaimer 📝</h2>
+<h2>Disclaimer 📝</h2>
 
-<p align="center">This repository is only open to IIT Mandi Students, starting their Open Source Journey. Please make sure that you are an IIT Mandi Student with a valid Enrollment No.</p>
+<p>This repository is only open to IIT Mandi Students, starting their Open Source Journey. Please make sure that you are an IIT Mandi Student with a valid Enrollment No.</p>
 
-<h2 align="center">Author ✍️</h2>
+<h2>Author ✍️</h2>
 
-<p align="center"><a href="https://github.com/CodingWarrior33">Akarshan Kapoor</a></p>
-<h6 align="center">We Wish You All The Best</h6>
-<h2 align="center">🥳 Happy Hacktober 🥳</h2>
+<p><a href="https://github.com/CodingWarrior33">Akarshan Kapoor</a></p>
+<h6>We Wish You All The Best</h6>
+<h2>🥳 Happy Hacktober 🥳</h2>
 
 </body>
 </html>
