@@ -8,7 +8,7 @@
 
 #include<iostream>
 using namespace std;
-// O(logn)
+
 void heapify(int *arr , int n, int i){
     int leftchild = 2*i;
     int rightchild = 2*i +1;
