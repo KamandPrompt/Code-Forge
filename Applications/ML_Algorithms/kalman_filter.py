@@ -6,13 +6,11 @@ Implementation of a Python code for a Kalman Filter using the Numpy package.
 Kalman Filtering is carried out in two steps:
 1. Prediction
 2. Update
-Each step is np.linalg.investigated and coded as a function with matrix
-input and output.
 
 Use Cases: Can be used for stochastic estimation from noisy sensor measurements
 """
 
-import numpy as np
+import numpy
 import numpy.linalg
 import numpy.random
 import matplotlib.pyplot as plt
@@ -28,26 +26,26 @@ def kalman_predict(prev_x, prev_cov, transition_mat, process_noise_cov, inp_effe
     inp_effect_mat    : The input effect matrix.
     control_inp       : The control input.
     """
-    prev_x = np.dot(transition_mat, prev_x) + np.dot(inp_effect_mat, control_inp)
-    prev_cov = np.dot(transition_mat, np.dot(prev_cov, transition_mat.T)) + process_noise_cov
+    prev_x = numpy.dot(transition_mat, prev_x) + numpy.dot(inp_effect_mat, control_inp)
+    prev_cov = numpy.dot(transition_mat, numpy.dot(prev_cov, transition_mat.T)) + process_noise_cov
     return prev_x , prev_cov
 
 def gauss_pdf(X, M, S):
     if M.shape[1] == 1:
-        DX = X - np.tile(M, X.shape[1])
-        E = 0.5 * np.sum(DX * (np.dot(np.linalg.inv(S), DX)), axis=0)
-        E = E + 0.5 * M.shape[0] * np.log(2 * np.pi) + 0.5 * np.log(np.linalg.det(S))
-        P = np.exp(-E)
+        DX = X - numpy.tile(M, X.shape[1])
+        E = 0.5 * numpy.sum(DX * (numpy.dot(numpy.linalg.inv(S), DX)), axis=0)
+        E = E + 0.5 * M.shape[0] * numpy.log(2 * numpy.pi) + 0.5 * numpy.log(numpy.linalg.det(S))
+        P = numpy.exp(-E)
     elif X.shape[1] == 1:
-        DX = np.tile(X, M.shape[1])- M
-        E = 0.5 * np.sum(DX * (np.dot(np.linalg.inv(S), DX)), axis=0)
-        E = E + 0.5 * M.shape[0] * np.log(2 * np.pi) + 0.5 * np.log(np.linalg.det(S))
-        P = np.exp(-E)
+        DX = numpy.tile(X, M.shape[1])- M
+        E = 0.5 * numpy.sum(DX * (numpy.dot(numpy.linalg.inv(S), DX)), axis=0)
+        E = E + 0.5 * M.shape[0] * numpy.log(2 * numpy.pi) + 0.5 * numpy.log(numpy.linalg.det(S))
+        P = numpy.exp(-E)
     else:
         DX = X-M
-        E = 0.5 * np.dot(DX.T, np.dot(np.linalg.inv(S), DX))
-        E = E + 0.5 * M.shape[0] * np.log(2 * np.pi) + 0.5 * np.log(np.linalg.det(S))
-        P = np.exp(-E)
+        E = 0.5 * numpy.dot(DX.T, numpy.dot(numpy.linalg.inv(S), DX))
+        E = E + 0.5 * M.shape[0] * numpy.log(2 * numpy.pi) + 0.5 * numpy.log(numpy.linalg.det(S))
+        P = numpy.exp(-E)
     return (P[0] ,E[0])
 
 def kalman_update(prev_x, prev_cov, Y, H, R):
@@ -64,11 +62,11 @@ def kalman_update(prev_x, prev_cov, Y, H, R):
     LH        : the Predictive probability (likelihood) of measurement which is
                 computed using the Python function gauss_pdf
     """
-    IM = np.dot(H, X)
-    IS = R + np.dot(H, np.dot(P, H.T))
-    K = np.dot(P, np.dot(H.T, np.linalg.inv(IS)))
-    prev_x = prev_x + np.dot(K, (Y-IM))
-    prev_cov = prev_cov - np.dot(K, np.dot(IS, K.T))
+    IM = numpy.dot(H, X)
+    IS = R + numpy.dot(H, numpy.dot(P, H.T))
+    K = numpy.dot(P, numpy.dot(H.T, numpy.linalg.inv(IS)))
+    prev_x = prev_x + numpy.dot(K, (Y-IM))
+    prev_cov = prev_cov - numpy.dot(K, numpy.dot(IS, K.T))
     LH = gauss_pdf(Y, IM, IS)
     return (prev_x, prev_cov, K, IM, IS, LH)
 
@@ -97,17 +95,17 @@ We draw the matrix Y randomly centered on the true value of mobile position
 dt = 0.1
 
 # Initialization of state matrices
-X = np.array([[0.0], [0.0], [0.1], [0.1]]) # State Mean of previous step
-P = np.diag((0.01, 0.01, 0.01, 0.01)) # State Covariance of previous step
-A = np.array([[1, 0, dt , 0], [0, 1, 0, dt], [0, 0, 1, 0], [0, 0, 0, 1]]) # Transition Matrix
-Q = np.eye(X.shape[0]) # Process Noise
-B = np.eye(X.shape[0]) # Input Effect Matrix
-U = np.zeros((X.shape[0],1)) # Control Input
+X = numpy.array([[0.0], [0.0], [0.1], [0.1]]) # State Mean of previous step
+P = numpy.diag((0.01, 0.01, 0.01, 0.01)) # State Covariance of previous step
+A = numpy.array([[1, 0, dt , 0], [0, 1, 0, dt], [0, 0, 1, 0], [0, 0, 0, 1]]) # Transition Matrix
+Q = numpy.eye(X.shape[0]) # Process Noise
+B = numpy.eye(X.shape[0]) # Input Effect Matrix
+U = numpy.zeros((X.shape[0],1)) # Control Input
 
 # Measurement matrices
-Y = np.array([[X[0,0] + abs(numpy.random.randn(1)[0])], [X[1,0] +abs(numpy.random.randn(1)[0])]]) # True Position
-H = np.array([[1, 0, 0, 0], [0, 1, 0, 0]]) # Measurement Matrix
-R = np.eye(Y.shape[0]) # Measurement Covariance Matrix
+Y = numpy.array([[X[0,0] + abs(numpy.random.randn(1)[0])], [X[1,0] +abs(numpy.random.randn(1)[0])]]) # True Position
+H = numpy.array([[1, 0, 0, 0], [0, 1, 0, 0]]) # Measurement Matrix
+R = numpy.eye(Y.shape[0]) # Measurement Covariance Matrix
 
 # Number of iterations in Kalman Filter
 N_iter = 50
@@ -119,7 +117,7 @@ outputX=[[],[]]
 for i in range(N_iter):
     (X, P) = kalman_predict(X, P, A, Q, B, U)
     (X, P, K, IM, IS, LH) = kalman_update(X, P, Y, H, R)
-    Y = np.array([[X[0,0] + abs(0.1 * numpy.random.randn(1)[0])],[X[1, 0] + abs(0.1 * numpy.random.randn(1)[0])]])
+    Y = numpy.array([[X[0,0] + abs(0.1 * numpy.random.randn(1)[0])],[X[1, 0] + abs(0.1 * numpy.random.randn(1)[0])]])
 
     outputY[0].append(Y[0])
     outputY[1].append(Y[1])
