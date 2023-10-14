@@ -93,6 +93,29 @@ int main() {
         cin >> u >> v;
         g.addEdge(u, v, false); // Assuming undirected edges
     }
-    //note : the code is for undirected edges only
-    g.printAdjList();
+    vector<pair<int, int>> edges;
+    for (auto it : g.adj) {
+        int u = it.first;
+        for (auto v : it.second) {
+            edges.push_back({u, v});
+        }
+    }
+
+    vector<int> result = BFS(n, edges);
+
+    cout << "Breadth-First Traversal: ";
+    for (int node : result) {
+        cout << node << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
+
+
+
+
+
+
+
+
