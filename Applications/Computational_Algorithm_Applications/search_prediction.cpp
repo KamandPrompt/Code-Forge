@@ -1,3 +1,19 @@
+/*
+The following code is an implementation of Trie Data Structure. 
+
+The aim of the code is to first store the words given by the user.
+
+Once that is done it asks for a prompt from the user, it returns all the words with the same prefix as the one given by the user in order 
+of the frequency of occurance of the words
+
+NOTE: Code only accepts lowercase letters
+
+Time Complexity => O(L(Prefix) + 26*L(longest word with same prefix - prefix length))
+                => In worst case time complexity is O(26*L(Prefix)) = O(N)
+=> Time Complexity in worst case is O(N)
+
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
