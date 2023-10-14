@@ -61,7 +61,7 @@ public:
         // Print the shortest distances
         for (int i = 0; i < numVertices; ++i) {
             if(distances[i]==INT_MAX){
-                cout<<"Source "<<source<<" is not comnnected to node "<<i<<endl;
+                cout<<"Source "<<source<<" is not connected to node "<<i<<endl;
             }
             else{
                 cout << "Distance from " << source << " to " << i << " is " << distances[i] << endl;
@@ -74,18 +74,34 @@ int main(){
     //Defining source node and number of vertices
     int numVertices;
     cout<<"Enter number of vertices: ";cin>>numVertices;
+    while(numVertices<=0){
+        cout<<"Invalid input! "<<endl;
+        cout<<"Enter number of vertices: ";cin>>numVertices;
+    }
     int sourceNode;
     cout<<"Enter source node:";cin>>sourceNode;
+    while(sourceNode<0){
+        cout<<"Invalid input! "<<endl;
+        cout<<"Enter source node:";cin>>sourceNode;
+    }
+
     // Defining edge vector
     vector<Edge> edges;
     int n;
     cout<<"Enter number of edges:";cin>>n;
+    while(n<0){
+        cout<<"Invalid input! "<<endl;
+        cout<<"Enter number of edges:";cin>>n;
+
+    }
     int u,v,w;
     for(int i=0;i<n;i++){
         cout<<"For edge, give space seperated source,destination and weight:";cin>>u>>v>>w;
+        while(u<0 ||v<0){
+            cout<<"Invalid input!! Give space seperated source,destination and weight:";cin>>u>>v>>w;
+        }
         edges.push_back({u,v,w});
     }
-
     BellmanFord bf;
     bf.bellmanFord(edges, numVertices, sourceNode);
 
