@@ -8,9 +8,9 @@ of the frequency of occurance of the words
 
 NOTE: Code only accepts lowercase letters
 
-Time Complexity => O(L(Prefix) + 26*L(longest word with same prefix - prefix length))
-                => In worst case time complexity is O(26*L(Prefix)) = O(N)
-=> Time Complexity in worst case is O(N)
+Time Complexity => O(L(Prefix) + 26*L(longest word with same prefix - prefix length)) + O(N*logN) - for sorting in order of frequency
+                => In worst case time complexity is O(26*L(Prefix)) + O(N*logN) = O(N*logN)
+=> Time Complexity in worst case is O(N*logN)
 
 */
 
