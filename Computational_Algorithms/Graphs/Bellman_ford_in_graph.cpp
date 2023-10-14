@@ -1,5 +1,5 @@
 /*
-Bellman-ford algorithm is used to find shortest distance between source and vertices.
+Bellman-ford algorithm is used to find shortest distance between source and vertices in a directed graph.
 
 Stepwise algorithm:
 1) Initialization: Assign an initial value of infinity to the distance between the source vertex and all other vertices, except 
@@ -60,25 +60,31 @@ public:
 
         // Print the shortest distances
         for (int i = 0; i < numVertices; ++i) {
-            cout << "Distance from " << source << " to " << i << " is " << distances[i] << endl;
-        }
-    }
+            if(distances[i]==INT_MAX){
+                cout<<"Source "<<source<<" is not comnnected to node "<<i<<endl;
+            }
+            else{
+                cout << "Distance from " << source << " to " << i << " is " << distances[i] << endl;
+            }
+        }  
+    } 
 };
 // Main code
-int main() {
-    // Defining edge vector
-    vector<Edge> edges = {
-        {0, 1, 6},
-        {0, 2, 2},
-        {1, 4, 1},
-        {2, 1, 3},
-        {2, 3, 5},
-        {3, 4, -3},
-        {4, 3, 3}
-    };
+int main(){
     //Defining source node and number of vertices
-    int numVertices = 5;
-    int sourceNode = 0;
+    int numVertices;
+    cout<<"Enter number of vertices: ";cin>>numVertices;
+    int sourceNode;
+    cout<<"Enter source node:";cin>>sourceNode;
+    // Defining edge vector
+    vector<Edge> edges;
+    int n;
+    cout<<"Enter number of edges:";cin>>n;
+    int u,v,w;
+    for(int i=0;i<n;i++){
+        cout<<"For edge, give space seperated source,destination and weight:";cin>>u>>v>>w;
+        edges.push_back({u,v,w});
+    }
 
     BellmanFord bf;
     bf.bellmanFord(edges, numVertices, sourceNode);
