@@ -1,5 +1,5 @@
 # HUFFMAN CODING for data message storage using less space
-#You can code same in other language but that will be very long
+#You can code same in other language but that will be very long hence it is coded in python.
 
 '''
 PRINCIPLE
@@ -40,11 +40,12 @@ MATHEMATICS-
     calculate the result for any array and you will see the difference in storage of data.
 '''
 #give input
-print("type the string for which you want code for '\n'")
+print("type the string for which you want code for")
 string=input()
 
 # Creating tree structure with nodes
-class NodeTree(object):
+
+class Tree(object):
 
     def __init__(self, left=None, right=None):
         self.left = left
@@ -59,43 +60,43 @@ class NodeTree(object):
     def __str__(self):
         return (self.left, self.right)
 
+# Calculating frequency of each character and storing it in dictionary
+frequency = {}
+for character in string:
+    if character in frequency:
+        frequency[character] += 1
+    else:
+        frequency[character] = 1
+
+frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True) #sorting the map/dictionary
+
+nodes = frequency #creating nodes dictionary/map as copy of original frequency dictionary
+
+while len(nodes) > 1: #setting nodes according to child
+    (key1, c1) = nodes[-1]
+    (key2, c2) = nodes[-2]
+    nodes = nodes[:-2]
+    node = Tree(key1, key2)
+    nodes.append((node, c1 + c2))
+
+    nodes = sorted(nodes, key=lambda x: x[1], reverse=True)#sorting the nodes after creating them
 
 # Main function implementing huffman coding
 def huffman_tree(node, left=True, code=''):
     if type(node) is str:
         return {node: code}
     (l, r) = node.children()
-    d = dict()
-    d.update(huffman_tree(l, True, code + '0'))#updating the codes values according to position in tree
-    d.update(huffman_tree(r, False, code + '1'))#updating the codes values according to position in tree
-    return d
-
-
-# Calculating frequency of each character and storing it in dictionary
-freq = {}
-for c in string:
-    if c in freq:
-        freq[c] += 1
-    else:
-        freq[c] = 1
-
-freq = sorted(freq.items(), key=lambda x: x[1], reverse=True) #sorting the map/dictionary
-
-nodes = freq #naming freq dictionary as nodes
-
-while len(nodes) > 1: #setting nodes according to child
-    (key1, c1) = nodes[-1]
-    (key2, c2) = nodes[-2]
-    nodes = nodes[:-2]
-    node = NodeTree(key1, key2)
-    nodes.append((node, c1 + c2))
-
-    nodes = sorted(nodes, key=lambda x: x[1], reverse=True)#sorting the nodes after creating them
+    dictionary = dict()
+    dictionary.update(huffman_tree(l, True, code + '0'))#updating the codes values according to position in tree
+    dictionary.update(huffman_tree(r, False, code + '1'))#updating the codes values according to position in tree
+    return dictionary
 
 huffmanCode = huffman_tree(nodes[0][0])
 
 print('huffman code for your message is')
 print('(Char,Huffman code) ')
 print('  |    |')
-for (char, frequency) in freq:
+for (char, frequency) in frequency:
     print((char, huffmanCode[char]))
+
+
