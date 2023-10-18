@@ -1,16 +1,17 @@
 # HUFFMAN CODING for data message storage using less space
-#You can code same in other language but that will be very long hence it is coded in python.
+#You can code same in other language but that will be very long
 
 '''
 PRINCIPLE
-works on the principle of trees it is the real life application
-of data structure like tree and priority queue to store large data 
-in coded form which consumes less space than original data. 
+    works on the principle of trees it is the real life application
+    of data structure like tree and priority queue to store large data 
+    in coded form which consumes less space than original data. 
 '''
 '''
 APPLICATION-
     majorly used for message transfer through server as storage is easy.
     fax machine used this to transfer data.
+    nowadays every messaging app uses this coding.
 '''
 
 '''
@@ -72,6 +73,13 @@ frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True) #sorting
 
 nodes = frequency #creating nodes dictionary/map as copy of original frequency dictionary
 
+def printing(huffmanCode):
+    code=""
+    for char in string:
+        code+=huffmanCode[char]
+    return code
+
+
 while len(nodes) > 1: #setting nodes according to child
     (key1, c1) = nodes[-1]
     (key2, c2) = nodes[-2]
@@ -99,4 +107,6 @@ print('  |    |')
 for (char, frequency) in frequency:
     print((char, huffmanCode[char]))
 
-
+code=printing(huffmanCode)
+print("coded message is-")
+print(code)
