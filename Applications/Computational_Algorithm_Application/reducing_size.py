@@ -4,7 +4,7 @@
 '''
 PRINCIPLE
 works on the principle of trees it is the real life application
-of data structure like tree and priority queue to store large data 
+of data structure like tree and sorting agorithms to store large data 
 in coded form which consumes less space than original data. 
 '''
 '''
