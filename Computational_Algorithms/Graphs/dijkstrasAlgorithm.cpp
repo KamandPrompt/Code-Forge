@@ -141,10 +141,6 @@ int main()
     }
     return 0;
 }
-/*
-Contributed by:- 
-Simran
-B21224
-*/
+
 
 
