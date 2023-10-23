@@ -1,4 +1,3 @@
-![](https://en.wikipedia.org/wiki/File:Indian_Institute_of_Technology_Mandi_Logo.png)
 ## Things to include in your PR:
 1. IIT Mandi Enrollement Number
 2. Your Name
