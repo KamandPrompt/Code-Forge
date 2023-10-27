@@ -4,7 +4,7 @@
 using namespace std;
 
 int linearSearch(int arr[], int n, int key) {
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) { // iterating through the array
         if (arr[i] == key) {
             return i;
         }
@@ -17,10 +17,10 @@ int main() {
     int n = sizeof(arr)/sizeof(arr[0]);
     int key = 6;
 
-    int result=linearSearch(arr,n,key);
+    int result=linearSearch(arr,n,key); //linearly searches through the array for the given element i.e key 
 
     if (result != -1) {
-        cout <<"key found at "<< result<<endl;
+        cout <<"key found at "<< result<<endl; // if the given element is there, it prints out the result
     } else {
         cout <<"key not found"<<endl;
     }
