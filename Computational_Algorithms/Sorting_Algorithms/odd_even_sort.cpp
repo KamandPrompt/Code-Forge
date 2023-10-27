@@ -1,23 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 void odd_even_sort(vector<int> &arr , int n){
-    bool is_sorted = false;
-
+    bool is_sorted = false;  //initialised a flag to track if array is sorted or not.
+    
     while (!is_sorted)
     {
-    is_sorted = true;
-for (int i = 0; i <= n-2; i = i+2)
+    is_sorted = true; //make flag as sorted initially
+for (int i = 0; i <= n-2; i = i+2) //loop over even elements
 {
     if(arr[i] >arr[i+1]){
-        swap(arr[i],arr[i+1]);
-        is_sorted = false;
+        swap(arr[i],arr[i+1]); //if next element is smaller than swap the elements 
+        is_sorted = false;//mark the flag as unsorted as we have swapped the elements
     }
 }
-for (int i = 1; i <= n-2; i = i+2)
+for (int i = 1; i <= n-2; i = i+2) //loops over odd elements
 {
     if(arr[i] >arr[i+1]){
-        swap(arr[i],arr[i+1]);
-        is_sorted = false;
+        swap(arr[i],arr[i+1]);//if next element is smaller than swap the elements 
+        is_sorted = false; //mark the flag as unsorted as we have swapped the elements
     }
 }
     }
