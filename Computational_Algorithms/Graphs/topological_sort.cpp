@@ -1,14 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+//B22147 Yash Sehgal
+//class for implementaion of Graphs
 class Graph{
     unordered_map<int,list<int>> map;
     int num_nodes;
 
     public:
     // s number of nodes
+    //constructor
     Graph(int s){
        this->num_nodes=s;
     }
+    //creating teh edges
     void addedge(int u,int v,bool  dir){
         map[u].push_back(v);
         if(dir==0){
@@ -25,6 +29,7 @@ class Graph{
         }
     }
     private:
+    //The DFS traversal 
     void dfs(int node,int* visited,stack<int> &result){
         visited[node]=1;
      
@@ -36,6 +41,7 @@ class Graph{
            result.push(node);
     }
     public:
+    //the topologocal sort
     void topological_sort(){
         int visited[num_nodes]={0};
         stack<int>s;
@@ -49,6 +55,7 @@ class Graph{
             result.push_back(s.top());
             s.pop();
         }
+        //the final result array is printed
         for(auto i:result){
             cout<<i<<" ";
         }
