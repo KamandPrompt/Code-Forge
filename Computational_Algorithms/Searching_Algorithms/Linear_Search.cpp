@@ -26,3 +26,7 @@ int main() {
     }
     return 0;
 }
+// Linear search is a simple searching algorithm that iterates through a list or array of elements in a sequential manner. 
+// It checks each element one by one until the target value is found or the end of the list is reached.
+// Space Complexity: O(1)
+// Time Complexity: O(n)
