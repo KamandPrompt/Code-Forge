@@ -41,7 +41,7 @@ class Graph{
            result.push(node);
     }
     public:
-    //the topologocal sort
+    //the topological sort
     void topological_sort(){
         int visited[num_nodes]={0};
         stack<int>s;
