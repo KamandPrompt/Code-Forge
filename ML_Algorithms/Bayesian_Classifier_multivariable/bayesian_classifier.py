@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 #the multivariable _normal function from scipy library enables us to calculate the parameter vector for multiparameter data
 from scipy.stats import multivariate_normal
 from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
-#here all the data is imported and segred=gated from the unwanted data
+#here all the data is imported and segregated from the unwanted data
 train_data=pd.read_csv("iris_train.csv")
 train_target=train_data['Species']
 train_data.drop(['Unnamed: 0'], axis=1, inplace=True)
@@ -14,7 +14,6 @@ test_data=pd.read_csv("iris_test.csv")
 test_target=test_data['Species']
 test_data.drop(['Unnamed: 0'], axis=1, inplace=True)
 #this is the function for implementaion of multivariable bayesian classification
-# most varaibles are named as per the probabailistic variables
 def bay_class(train_df, pre_df_target, pre_df_test):
     classes = train_df['Species'].unique()
     P_C_list = {}
@@ -45,8 +44,8 @@ def bay_class(train_df, pre_df_target, pre_df_test):
     return predicted_list
 predicted=bay_class(train_data,train_target,test_data)
 cm=confusion_matrix(list(test_target),predicted,labels=['Iris-setosa','Iris-versicolor','Iris-virginica'])
-#accuracy is the trace of the confusion matrix upon total number of test samples
-# sya the i==j values of a matrix aij tells us how much predictions were accurate
+# accuracy is the trace of the confusion matrix upon total number of test samples
+# the i==j values of a matrix aij tells us how much predictions were accurate
 accuracy=(np.trace(cm)/len(test_target))*100
 print("the accuracy is : ",accuracy)
 disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=['Iris-setosa','Iris-versicolor','Iris-virginica'])
