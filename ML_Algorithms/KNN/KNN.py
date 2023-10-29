@@ -7,7 +7,9 @@ from sklearn import metrics
 import numpy as np
 import seaborn as sns 
 
-df=pd.read_csv("Iris.csv")
+df=pd.read_csv('https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv')
+#reading iris dataset
+
 
 X=df[df.columns[:4]]
 Y=list(df[df.columns[-1]])#taking last column as target attribute,assigning to Y
