@@ -45,7 +45,7 @@ class Graph{
     void topological_sort(){
         int visited[num_nodes]={0};
         stack<int>s;
-        for(int i=0;i<num_nodes;i++){
+        for(int i=1;i<num_nodes;i++){
             if(!visited[i]){
                 dfs(i,visited,s);
             }
