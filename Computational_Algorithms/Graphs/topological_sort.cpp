@@ -12,7 +12,7 @@ class Graph{
     Graph(int s){
        this->num_nodes=s;
     }
-    //creating teh edges
+    //adding the edges between the nodes
     void addedge(int u,int v,bool  dir){
         map[u].push_back(v);
         if(dir==0){
