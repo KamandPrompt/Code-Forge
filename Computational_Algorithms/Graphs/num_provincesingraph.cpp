@@ -42,7 +42,7 @@ class Graph{
         int visited[num_nodes]={0};
         vector<int>res;
         int province_counter=0;
-        for(int i =1;i<num_nodes;i++){
+        for(int i =1;i<=num_nodes;i++){
             if(!visited[i]){
                 province_counter++;
                 dfs(i,visited,res);
@@ -69,3 +69,4 @@ int main(){
    cout<<"The number of provinces in the graph is : "<<provinces<<endl;
 return 0;
 }
+
