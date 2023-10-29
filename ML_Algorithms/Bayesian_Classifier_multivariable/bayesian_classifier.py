@@ -3,26 +3,22 @@ import numpy as np
 import pandas as pd
 import math
 from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split
 #the multivariable _normal function from scipy library enables us to calculate the parameter vector for multiparameter data
 from scipy.stats import multivariate_normal
 from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
-#here all the data is imported and segregated from the unwanted data
-train_data=pd.read_csv("iris_train.csv")
-train_target=train_data['Species']
-train_data.drop(['Unnamed: 0'], axis=1, inplace=True)
-test_data=pd.read_csv("iris_test.csv")
-test_target=test_data['Species']
-test_data.drop(['Unnamed: 0'], axis=1, inplace=True)
-#this is the function for implementaion of multivariable bayesian classification
+x=pd.read_csv("https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv")
+y=x["species"]
+train_data,test_data,train_target,test_target=train_test_split(x,y,random_state=104,test_size=0.2,shuffle=True)
 def bay_class(train_df, pre_df_target, pre_df_test):
-    classes = train_df['Species'].unique()
+    classes = train_df['species'].unique()
     P_C_list = {}
     mean_v_list = {}
     cov_mat_list = {}
     for cl in classes:
-        P_C = len(train_df[train_df['Species'] == cl]) / len(pre_df_target)
+        P_C = len(train_df[train_df['species'] == cl]) / len(pre_df_target)
         P_C_list[cl] = P_C
-        class_data = train_df[train_df['Species'] == cl].iloc[:, 0:4]
+        class_data = train_df[train_df['species'] == cl].iloc[:, 0:4]
         mean_v = class_data.mean().values
         mean_v_list[cl] = mean_v
         cov_mat = np.cov(class_data, rowvar=False)
@@ -43,11 +39,11 @@ def bay_class(train_df, pre_df_target, pre_df_test):
         predicted_list.append(pre_class)
     return predicted_list
 predicted=bay_class(train_data,train_target,test_data)
-cm=confusion_matrix(list(test_target),predicted,labels=['Iris-setosa','Iris-versicolor','Iris-virginica'])
+cm=confusion_matrix(list(test_target),predicted,labels=['setosa','versicolor','virginica'])
 # accuracy is the trace of the confusion matrix upon total number of test samples
 # the i==j values of a matrix aij tells us how much predictions were accurate
 accuracy=(np.trace(cm)/len(test_target))*100
 print("the accuracy is : ",accuracy)
-disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=['Iris-setosa','Iris-versicolor','Iris-virginica'])
+disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=['setosa','versicolor','virginica'])
 disp.plot()
 plt.show()
