@@ -1,3 +1,8 @@
+#Link to CSV file:-  https://drive.google.com/file/d/1_NkZeCrDIpEpUkh9uMLubBcS361UEdBW/view?usp=drive_link
+
+
+# Dimensity reduction using Principal component analysis(PCA)
+
 #importing neccesary libraries
 import pandas as pd
 import matplotlib.pyplot as plt
