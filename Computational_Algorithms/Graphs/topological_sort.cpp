@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-//B22147 Yash Sehgal
+//A Bayesian classifier algorithm for multivariable data is a probabilistic approach to classification tasks. It relies on Bayes' theorem to make predictions about the class or category to which a new data point belongs, taking into consideration multiple variables or attributes. During the training phase, the algorithm learns from a labeled dataset, calculating conditional probabilities of observing specific variable values for each class. In the classification phase, when presented with a new data point, it estimates the probability of it belonging to each possible class based on the observed variables. The class with the highest probability is assigned as the predicted label. One fundamental assumption is that the variables are conditionally independent given the class, although this may not always hold in practice. Despite this simplification, Bayesian classifiers are effective in a wide range of applications, including spam email filtering, sentiment analysis, and medical diagnosis, offering a probabilistic framework for making informed classification decisions.
 //class for implementaion of Graphs
 class Graph{
     unordered_map<int,list<int>> map;
