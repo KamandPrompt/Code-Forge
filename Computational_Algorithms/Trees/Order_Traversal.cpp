@@ -98,6 +98,42 @@ void postorder(binary_Tree* root){
 }
 
 
+// Level Order Traversal of Binary Tree
+//  --> in this type of traversal , we print node of binary tree in increasing height order
+
+// => algorithm :
+//  1 : create a queue and push root in it
+//  2 : run a loop until queue is not empty
+//  3 : each time pop front element from queue and then print its value 
+// and push its left and right child if exists
+
+/*FOR TREE-
+                        A
+                       / \
+                      /   \
+                     B     C
+                    / \   /  \
+                   D   E  F   G
+                  / \    / \  / \
+                 H   I  J   K L  M
+    
+    level_order_traversal="ABCDEFGHIJKLM"
+*/
+
+void level_order_traversal(binary_Tree*root)
+{
+    queue<binary_Tree*>q;//creating a queue
+    q.push(root);//pushing  root element first
+    while(!q.empty())// running a loop until queue is not empty
+    {
+        auto node=q.front();q.pop();//each time we pop front element from queue 
+        cout<<node->val<<" ";//, print its value 
+        if(node->left){q.push(node->left);}//and then push its left 
+        if(node->right){q.push(node->right);}//and right child if exist
+    }
+    cout<<endl;
+}
+
 //assuming you know insertion in binary tree
 binary_Tree* insert(binary_Tree*root,int value){
     if(root==NULL){
@@ -134,6 +170,8 @@ int main(){
     cout<<endl;
     cout<<"postorder is: ";
     postorder(root);
-
+    cout<<endl;
+    cout<<"levelOrderTraversal is: ";
+    level_order_traversal(root);
     return 0;
 }
