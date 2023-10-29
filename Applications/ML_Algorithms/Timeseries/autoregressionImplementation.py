@@ -12,6 +12,8 @@ Low- Today's Low
 Close- Close price adjusted for splits
 Adj. Close- Adjusted close price adjusted for splits and dividend and/or capital gain distributions.
 Volume- Volume of stocks
+
+Link to dataset: https://drive.google.com/file/d/1mcNnmnlpfjiOr-Ac7hJ-45i-9wiNOW6b/view?usp=drive_link
 '''
 
 import pandas as pd
