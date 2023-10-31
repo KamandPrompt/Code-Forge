@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+//implementation of the graph data structure wit the requireed functions
 class Graph{
     unordered_map<int,list<int>> map;
     int num_nodes;
@@ -37,7 +38,7 @@ class Graph{
         }
     }
     public:
-    //The function to find number of provices in the graph
+    //The function to find number of provinces in the graph
     int num_province(){
         int visited[num_nodes]={0};
         vector<int>res;
@@ -54,10 +55,12 @@ class Graph{
 
 int main(){
     int n,m;
+    //taking number of the nodes as n and number of edges as m
     cout<<"enter the number of nodes and edges : ";
     cin>>n>>m;
     cout<<"Enter the edges : "<<endl;
    Graph g1(n);
+   //the edge is added between u and v
    for(int i=0;i<m;i++){
         int u,v;
         cin>>u>>v;
@@ -65,6 +68,7 @@ int main(){
    }
    cout<<"The Adjacency list :"<<endl;
    g1.print_graph();
+   //calling the number of province funtction
    int provinces=g1.num_province();
    cout<<"The number of provinces in the graph is : "<<provinces<<endl;
 return 0;
